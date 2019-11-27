@@ -13,7 +13,7 @@ class CheckSuite(unittest.TestCase):
             return 1;
         }
         void a(){
-            a;
+            return;
         }
         int a;
         '''
@@ -22,7 +22,7 @@ class CheckSuite(unittest.TestCase):
     
     def test_redeclared_function_in_global(self):
         input = '''
-        float foo(int x){
+        float foo(){
             return 1.2+4;
         }
         int main(){
@@ -108,12 +108,12 @@ class CheckSuite(unittest.TestCase):
     def test_OK_redeclared_variable_with_function_in_local(self):
         input = '''
         int a1, a2, a3[5];
-        void mety( int mety) {
+        void test( int test) {
             int a1, a2, a3[5];
             return;
         }
         void main() {
-            mety(10);
+            test(10);
             return;
         }
         '''
